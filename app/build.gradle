@@ -1,0 +1,85 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.cpxiao.aa2048"
+        minSdkVersion 14
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            minifyEnabled true  //混淆
+            shrinkResources true // 移除无用的resource文件
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    productFlavors {
+        gp {}
+    }
+
+    productFlavors.all {
+        flavor -> flavor.manifestPlaceholders = [UMENG_CHANNEL_VALUE: name]
+    }
+
+//    freeline {
+//        hack true
+//        productFlavor 'debug_gp'
+//    }
+
+    //修改生成的apk名字
+    applicationVariants.all { variant ->
+        variant.outputs.each { output ->
+            def oldFile = output.outputFile
+            def packageName = applicationId;
+            if (variant.buildType.name.equals('release')) {
+                def releaseApkName = packageName +
+                        "_v" + defaultConfig.versionName +
+                        "_" + variant.productFlavors[0].name +
+                        "_" + new Date().format('yyyyMMddHHmm') +
+                        '.apk'
+                output.outputFile = new File(oldFile.parent, releaseApkName)
+            }
+            if (variant.buildType.name.equals('beta')) {
+                def baseApkName = packageName +
+                        "_v" + defaultConfig.versionName + "beta" +
+                        "_" + variant.productFlavors[0].name +
+                        "_" + new Date().format('yyyyMMddHHmm') +
+                        '.apk'
+                output.outputFile = new File(oldFile.parent, baseApkName)
+            }
+            if (variant.buildType.name.equals('debug')) {
+
+            }
+        }
+    }
+}
+
+dependencies {
+    compile project(':AndroidUtils:library')
+    compile 'com.android.support:appcompat-v7:25.3.1'
+    /**
+     * Ads Start
+     */
+    //友盟统计
+    compile 'com.umeng.analytics:analytics:latest.integration'
+    //Facebook广告
+//    compile files('libs/AudienceNetwork_v4.7.jar')
+//    compile 'com.facebook.android:audience-network-sdk:4.+'
+    compile 'com.facebook.android:audience-network-sdk:4.25.0'
+    //AdMob广告
+//    compile 'com.google.firebase:firebase-ads:9.4.0'
+    compile 'com.google.firebase:firebase-ads:11.0.0'
+    //ZAds SDK
+//    compile 'com.github.bumptech.glide:glide:3.7.0'//要放在前面几个库的后面
+    compile 'com.github.bumptech.glide:glide:4.0.0-RC1'
+    /**
+     * Ads End
+     */
+
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+
+}

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:paddingBottom="100dp">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="20dp"
+        android:text="@string/app_name"
+        android:textSize="32sp"/>
+
+    <Button
+        android:id="@+id/easy"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/easy"/>
+
+    <Button
+        android:id="@+id/normal"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/normal"/>
+
+    <Button
+        android:id="@+id/hard"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/hard"/>
+
+    <Button
+        android:id="@+id/insane"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/insane"/>
+
+    <Button
+        android:id="@+id/impossible"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/impossible"/>
+
+    <Button
+        android:id="@+id/best_score"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/best_score"/>
+
+    <Button
+        android:id="@+id/settings"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/settings"/>
+
+    <Button
+        android:id="@+id/quit"
+        style="@style/HomeBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/quit"/>
+
+</LinearLayout>
