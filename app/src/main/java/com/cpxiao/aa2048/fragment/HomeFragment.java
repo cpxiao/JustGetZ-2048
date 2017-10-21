@@ -46,6 +46,7 @@ public class HomeFragment extends BaseZAdsFragment implements View.OnClickListen
         settings.setOnClickListener(this);
         quit.setOnClickListener(this);
 
+        settings.setVisibility(View.GONE);
     }
 
     @Override

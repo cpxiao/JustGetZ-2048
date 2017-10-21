@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AA2048</string>
+    <string name="app_name">AA 2048</string>
 
     <!--<string name="ball1">Ball</string>-->
     <string name="easy">Easy ( 4 x 4 )</string>
@@ -28,6 +28,6 @@
     <!-- Confirmation dialog-->
     <string name="reset">Reset</string>
     <string name="continue_game">Cancel</string>
-    <string name="reset_dialog_title">Reset game?</string>
-    <string name="reset_dialog_message">Are you sure you wish to reset the game?</string>
+    <string name="reset_dialog_title">Reset game ?</string>
+    <string name="reset_dialog_message">Are you sure you wish to reset the game ?</string>
 </resources>
