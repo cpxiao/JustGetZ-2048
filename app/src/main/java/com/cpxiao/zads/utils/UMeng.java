@@ -3,7 +3,7 @@ package com.cpxiao.zads.utils;
 import android.content.Context;
 import android.text.TextUtils;
 
-import com.cpxiao.zads.ZAdsConfig;
+import com.cpxiao.AppConfig;
 import com.umeng.analytics.MobclickAgent;
 
 /**
@@ -11,7 +11,7 @@ import com.umeng.analytics.MobclickAgent;
  */
 
 public class UMeng {
-    private static final boolean DEBUG = ZAdsConfig.DEBUG;
+    private static final boolean DEBUG = AppConfig.ADS_DEBUG;
 
     /**
      * 广告

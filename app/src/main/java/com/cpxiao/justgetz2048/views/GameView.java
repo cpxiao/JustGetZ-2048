@@ -1,4 +1,4 @@
-package com.cpxiao.aa2048.views;
+package com.cpxiao.justgetz2048.views;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -14,13 +14,15 @@ import android.view.View;
 
 import com.cpxiao.AppConfig;
 import com.cpxiao.R;
-import com.cpxiao.aa2048.InputListener;
-import com.cpxiao.aa2048.mode.AnimationCell;
-import com.cpxiao.aa2048.mode.MainGame;
-import com.cpxiao.aa2048.mode.Tile;
-import com.cpxiao.aa2048.mode.extra.Extra;
+import com.cpxiao.justgetz2048.InputListener;
+import com.cpxiao.justgetz2048.mode.AnimationCell;
+import com.cpxiao.justgetz2048.mode.MainGame;
+import com.cpxiao.justgetz2048.mode.Tile;
+import com.cpxiao.justgetz2048.mode.extra.Extra;
 
 import java.util.ArrayList;
+
+import hugo.weaving.DebugLog;
 
 public class GameView extends View {
 
@@ -30,7 +32,7 @@ public class GameView extends View {
     //Internal Constants
     private static final float MERGING_ACCELERATION = -0.5F;
     private static final float INITIAL_VELOCITY = (1 - MERGING_ACCELERATION) / 4;
-    public final int numCellTypes = 26;
+    public  final int numCellTypes = 27;
     private final BitmapDrawable[] bitmapCell = new BitmapDrawable[numCellTypes];
     public MainGame game;
     //Internal variables
@@ -459,6 +461,7 @@ public class GameView extends View {
 
     }
 
+    @DebugLog
     private void createBitmapCells(Paint paint) {
         Resources resources = getResources();
         int[] cellRectangleIds = getCellRectangleIds();
@@ -468,7 +471,7 @@ public class GameView extends View {
             paint.setTextSize(cellTextSize);
             float tempTextSize = cellTextSize * cellSize * 0.9f / Math.max(cellSize * 0.9f, paint.measureText(String.valueOf(value)));
             paint.setTextSize(tempTextSize);
-            Bitmap bitmap = Bitmap.createBitmap(cellSize, cellSize, Bitmap.Config.ARGB_8888);
+            Bitmap bitmap = Bitmap.createBitmap(cellSize, cellSize, Bitmap.Config.ARGB_4444);
             Canvas canvas = new Canvas(bitmap);
             drawDrawable(canvas, ContextCompat.getDrawable(getContext(), cellRectangleIds[xx]), 0, 0, cellSize, cellSize);
             drawCellText(canvas, value, paint);
@@ -479,20 +482,34 @@ public class GameView extends View {
     private int[] getCellRectangleIds() {
         int[] cellRectangleIds = new int[numCellTypes];
         cellRectangleIds[0] = R.drawable.cell_rectangle;
-        cellRectangleIds[1] = R.drawable.cell_rectangle_2;
-        cellRectangleIds[2] = R.drawable.cell_rectangle_4;
-        cellRectangleIds[3] = R.drawable.cell_rectangle_8;
-        cellRectangleIds[4] = R.drawable.cell_rectangle_16;
-        cellRectangleIds[5] = R.drawable.cell_rectangle_32;
-        cellRectangleIds[6] = R.drawable.cell_rectangle_64;
-        cellRectangleIds[7] = R.drawable.cell_rectangle_128;
-        cellRectangleIds[8] = R.drawable.cell_rectangle_256;
-        cellRectangleIds[9] = R.drawable.cell_rectangle_512;
-        cellRectangleIds[10] = R.drawable.cell_rectangle_1024;
-        cellRectangleIds[11] = R.drawable.cell_rectangle_2048;
-        cellRectangleIds[12] = R.drawable.cell_rectangle_4096;
-        for (int xx = 13; xx < cellRectangleIds.length; xx++) {
-            cellRectangleIds[xx] = R.drawable.cell_rectangle_8192;
+        cellRectangleIds[1] = R.drawable.cell_rectangle_a;
+        cellRectangleIds[2] = R.drawable.cell_rectangle_b;
+        cellRectangleIds[3] = R.drawable.cell_rectangle_c;
+        cellRectangleIds[4] = R.drawable.cell_rectangle_d;
+        cellRectangleIds[5] = R.drawable.cell_rectangle_e;
+        cellRectangleIds[6] = R.drawable.cell_rectangle_f;
+        cellRectangleIds[7] = R.drawable.cell_rectangle_g;
+        cellRectangleIds[8] = R.drawable.cell_rectangle_h;
+        cellRectangleIds[9] = R.drawable.cell_rectangle_i;
+        cellRectangleIds[10] = R.drawable.cell_rectangle_j;
+        cellRectangleIds[11] = R.drawable.cell_rectangle_k;
+        cellRectangleIds[12] = R.drawable.cell_rectangle_l;
+        cellRectangleIds[13] = R.drawable.cell_rectangle_m;
+        cellRectangleIds[14] = R.drawable.cell_rectangle_n;
+        cellRectangleIds[15] = R.drawable.cell_rectangle_o;
+        cellRectangleIds[16] = R.drawable.cell_rectangle_p;
+        cellRectangleIds[17] = R.drawable.cell_rectangle_q;
+        cellRectangleIds[18] = R.drawable.cell_rectangle_r;
+        cellRectangleIds[19] = R.drawable.cell_rectangle_s;
+        cellRectangleIds[20] = R.drawable.cell_rectangle_t;
+        cellRectangleIds[21] = R.drawable.cell_rectangle_u;
+        cellRectangleIds[22] = R.drawable.cell_rectangle_v;
+        cellRectangleIds[23] = R.drawable.cell_rectangle_w;
+        cellRectangleIds[24] = R.drawable.cell_rectangle_x;
+        cellRectangleIds[25] = R.drawable.cell_rectangle_y;
+        cellRectangleIds[26] = R.drawable.cell_rectangle_z;
+        for (int xx = 27; xx < cellRectangleIds.length; xx++) {
+            cellRectangleIds[xx] = R.drawable.cell_rectangle_max;
         }
         return cellRectangleIds;
     }

@@ -1,15 +1,19 @@
 apply plugin: 'com.android.application'
+apply plugin: 'com.jakewharton.hugo'
+//apply plugin: 'com.antfortune.freeline'
 
 android {
     compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    buildToolsVersion '26.0.2'
     defaultConfig {
-        applicationId "com.cpxiao.aa2048"
+        applicationId "com.cpxiao.justgetz2048"
         minSdkVersion 14
         targetSdkVersion 25
         versionCode 108
         versionName "1.0.8"
+        flavorDimensions "channel"
     }
+
     buildTypes {
         release {
             minifyEnabled true  //混淆
@@ -17,6 +21,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
     productFlavors {
         gp {}
     }
@@ -31,35 +36,44 @@ android {
 //    }
 
     //修改生成的apk名字
+//    applicationVariants.all { variant ->
+//        variant.outputs.each { output ->
+//            def oldFile = output.outputFile
+//            def packageName = applicationId;
+//            if (variant.buildType.name.equals('release')) {
+//                def releaseApkName = packageName +
+//                        "_v" + defaultConfig.versionName +
+//                        "_" + variant.productFlavors[0].name +
+//                        "_" + new Date().format('yyyyMMddHHmm') +
+//                        '.apk'
+//                output.outputFile = new File(oldFile.parent, releaseApkName)
+//            }
+//            if (variant.buildType.name.equals('beta')) {
+//                def baseApkName = packageName +
+//                        "_v" + defaultConfig.versionName + "beta" +
+//                        "_" + variant.productFlavors[0].name +
+//                        "_" + new Date().format('yyyyMMddHHmm') +
+//                        '.apk'
+//                output.outputFile = new File(oldFile.parent, baseApkName)
+//            }
+//            if (variant.buildType.name.equals('debug')) {
+//
+//            }
+//        }
+//    }
     applicationVariants.all { variant ->
-        variant.outputs.each { output ->
-            def oldFile = output.outputFile
-            def packageName = applicationId;
-            if (variant.buildType.name.equals('release')) {
-                def releaseApkName = packageName +
-                        "_v" + defaultConfig.versionName +
-                        "_" + variant.productFlavors[0].name +
-                        "_" + new Date().format('yyyyMMddHHmm') +
-                        '.apk'
-                output.outputFile = new File(oldFile.parent, releaseApkName)
-            }
-            if (variant.buildType.name.equals('beta')) {
-                def baseApkName = packageName +
-                        "_v" + defaultConfig.versionName + "beta" +
-                        "_" + variant.productFlavors[0].name +
-                        "_" + new Date().format('yyyyMMddHHmm') +
-                        '.apk'
-                output.outputFile = new File(oldFile.parent, baseApkName)
-            }
-            if (variant.buildType.name.equals('debug')) {
-
-            }
+        variant.outputs.all { output ->
+            outputFileName = applicationId +
+                    "_v" + defaultConfig.versionName +
+                    "_" + variant.productFlavors[0].name +
+                    "_" + new Date().format('yyyyMMddHHmm') +
+                    '.apk'
         }
     }
 }
 
 dependencies {
-    compile project(':AndroidUtils:library')
+    compile project(':__AndroidUtils:library')
     compile 'com.android.support:appcompat-v7:25.3.1'
     /**
      * Ads Start

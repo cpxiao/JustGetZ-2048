@@ -19,6 +19,7 @@ public abstract class BaseAppActivity extends BaseActivity {
 
     //获取Intent
     protected void handleIntent(Intent intent) {
+
     }
 
     @Override

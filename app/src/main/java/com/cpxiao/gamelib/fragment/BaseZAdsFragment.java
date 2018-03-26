@@ -7,6 +7,7 @@ import com.cpxiao.gamelib.activity.BaseZAdsActivity;
  */
 
 public abstract class BaseZAdsFragment extends BaseFragment {
+
     protected void loadZAds(int position) {
         if (getHoldingActivity() instanceof BaseZAdsActivity) {
             BaseZAdsActivity activity = (BaseZAdsActivity) getHoldingActivity();

@@ -27,25 +27,15 @@ import com.umeng.analytics.MobclickAgent;
  *          cpxiao on 2017/8/31   修改继承类
  */
 public abstract class BaseAdsActivity extends BaseAppActivity {
-    protected static final boolean DEBUG = AppConfig.DEBUG;
-    protected final String TAG = getClass().getSimpleName();
+    protected final String TEST_DEVICE_FB = AppConfig.TEST_DEVICE_FB;
+    protected final String TEST_DEVICE_ADMOB = AppConfig.TEST_DEVICE_ADMOB;
 
-    protected final String TEST_DEVICE_FB = "3bcc341340550569d910c92a2dae2677";
-    protected final String TEST_DEVICE_ADMOB = "67F59060394DB36B95B18F5EE5B5D735";
-
-    protected AdView mFbAdView;
     protected com.google.android.gms.ads.AdView mAdMobAdView;
+    protected AdView mFbAdView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //        //no title
-        //        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //
-        //        //隐藏状态栏部分（电池电量、时间等部分）
-        //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
     }
 
     @Override
@@ -74,79 +64,6 @@ public abstract class BaseAdsActivity extends BaseAppActivity {
         super.onDestroy();
     }
 
-    protected void initFbAds50(String placementId) {
-        initFbAds(placementId, AdSize.BANNER_HEIGHT_50);
-    }
-
-    protected void initFbAds90(String placementId) {
-        initFbAds(placementId, AdSize.BANNER_HEIGHT_90);
-    }
-
-    protected void initFbAds250(String placementId) {
-        initFbAds(placementId, AdSize.RECTANGLE_HEIGHT_250);
-    }
-
-    private void initFbAds(String placeId, AdSize adSize) {
-        if (DEBUG) {
-            Log.d(TAG, "initFbAds: ");
-        }
-
-        if (TextUtils.isEmpty(placeId)) {
-            if (DEBUG) {
-                throw new IllegalArgumentException("placeId is empty!");
-            }
-            return;
-        }
-
-        mFbAdView = new AdView(this, placeId, adSize);
-
-        mFbAdView.setAdListener(new AdListener() {
-
-            @Override
-            public void onError(Ad ad, AdError error) {
-                if (DEBUG) {
-                    Log.d(TAG, "Fb -> " + "onError: " + error.getErrorCode() + "," + error.getErrorMessage());
-                }
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                if (DEBUG) {
-                    Log.d(TAG, "Fb -> " + "onAdLoaded: ");
-                }
-                addToLayout(mFbAdView);
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                if (DEBUG) {
-                    Log.d(TAG, "Fb -> " + "onAdClicked: ");
-                }
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-                if (DEBUG) {
-                    Log.d(TAG, "onLoggingImpression: ");
-                }
-            }
-
-        });
-        if (DEBUG) {
-            AdSettings.addTestDevice(TEST_DEVICE_FB);
-
-            //            // 如果想要添加多台测试设备，只需创建一个字符串列表，添加到加载广告前的位置：
-            //            List<String> testDevices = new ArrayList<>();
-            //            testDevices.add("55c4f301d7c1183f1fa6ede6b3f2fe2e");
-            //            testDevices.add("e6298923190b4e7e7119e0f14c44f097");
-            //            AdSettings.addTestDevices(testDevices);
-        }
-        if (DEBUG) {
-            Log.d(TAG, "initFbAds:  mFbAdView.loadAd();");
-        }
-        mFbAdView.loadAd();
-
-    }
 
     protected void initAdMobAds50(String placementId) {
         initAdMobAds(placementId, com.google.android.gms.ads.AdSize.SMART_BANNER);
@@ -167,7 +84,7 @@ public abstract class BaseAdsActivity extends BaseAppActivity {
 
         if (TextUtils.isEmpty(unitId)) {
             if (DEBUG) {
-                throw new IllegalArgumentException("unitId is empty!");
+                throw new IllegalArgumentException("initAdMobAds: unitId is empty!");
             }
             return;
         }
@@ -223,7 +140,7 @@ public abstract class BaseAdsActivity extends BaseAppActivity {
         if (DEBUG) {
             adRequest = new AdRequest.Builder()
                     .addTestDevice(AdRequest.DEVICE_ID_EMULATOR)// All emulators
-                    .addTestDevice(TEST_DEVICE_ADMOB)//坚果
+                    .addTestDevice(TEST_DEVICE_ADMOB)
                     .build();
         } else {
             adRequest = new AdRequest.Builder()
@@ -235,6 +152,81 @@ public abstract class BaseAdsActivity extends BaseAppActivity {
         mAdMobAdView.loadAd(adRequest);
 
     }
+
+    protected void initFbAds50(String placementId) {
+        initFbAds(placementId, AdSize.BANNER_HEIGHT_50);
+    }
+
+    protected void initFbAds90(String placementId) {
+        initFbAds(placementId, AdSize.BANNER_HEIGHT_90);
+    }
+
+    protected void initFbAds250(String placementId) {
+        initFbAds(placementId, AdSize.RECTANGLE_HEIGHT_250);
+    }
+
+    private void initFbAds(String placeId, AdSize adSize) {
+        if (DEBUG) {
+            Log.d(TAG, "initFbAds: ");
+        }
+
+        if (TextUtils.isEmpty(placeId)) {
+            if (DEBUG) {
+                throw new IllegalArgumentException("initFbAds: placeId is empty!");
+            }
+            return;
+        }
+
+        mFbAdView = new AdView(this, placeId, adSize);
+
+        mFbAdView.setAdListener(new AdListener() {
+
+            @Override
+            public void onError(Ad ad, AdError error) {
+                if (DEBUG) {
+                    Log.d(TAG, "Fb -> " + "onError: " + error.getErrorCode() + "," + error.getErrorMessage());
+                }
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                if (DEBUG) {
+                    Log.d(TAG, "Fb -> " + "onAdLoaded: ");
+                }
+                addToLayout(mFbAdView);
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                if (DEBUG) {
+                    Log.d(TAG, "Fb -> " + "onAdClicked: ");
+                }
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+                if (DEBUG) {
+                    Log.d(TAG, "Fb -> " + "onLoggingImpression: ");
+                }
+            }
+
+        });
+        if (DEBUG) {
+            AdSettings.addTestDevice(TEST_DEVICE_FB);
+
+            //            // 如果想要添加多台测试设备，只需创建一个字符串列表，添加到加载广告前的位置：
+            //            List<String> testDevices = new ArrayList<>();
+            //            testDevices.add("55c4f301d7c1183f1fa6ede6b3f2fe2e");
+            //            testDevices.add("e6298923190b4e7e7119e0f14c44f097");
+            //            AdSettings.addTestDevices(testDevices);
+        }
+        if (DEBUG) {
+            Log.d(TAG, "initFbAds: mFbAdView.loadAd();");
+        }
+        mFbAdView.loadAd();
+
+    }
+
 
     private void addToLayout(View view) {
         if (DEBUG) {

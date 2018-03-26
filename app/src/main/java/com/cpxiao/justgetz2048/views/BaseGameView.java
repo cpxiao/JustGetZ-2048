@@ -1,4 +1,4 @@
-package com.cpxiao.aa2048.views;
+package com.cpxiao.justgetz2048.views;
 
 import android.content.Context;
 import android.graphics.Canvas;

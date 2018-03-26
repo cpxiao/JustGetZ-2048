@@ -1,4 +1,4 @@
-package com.cpxiao.aa2048.mode;
+package com.cpxiao.justgetz2048.mode;
 
 public class AnimationCell extends Cell {
     public final int[] extras;

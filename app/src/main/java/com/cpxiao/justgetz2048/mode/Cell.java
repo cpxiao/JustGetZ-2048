@@ -1,4 +1,4 @@
-package com.cpxiao.aa2048.mode;
+package com.cpxiao.justgetz2048.mode;
 
 public class Cell {
     private int x;

@@ -1,4 +1,4 @@
-package com.cpxiao.aa2048.mode.extra;
+package com.cpxiao.justgetz2048.mode.extra;
 
 /**
  * @author cpxiao on 2017/10/16.

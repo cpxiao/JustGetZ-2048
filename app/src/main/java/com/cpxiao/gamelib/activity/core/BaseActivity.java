@@ -6,6 +6,7 @@ import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.KeyEvent;
 
+import com.cpxiao.AppConfig;
 import com.cpxiao.R;
 import com.cpxiao.gamelib.fragment.BaseFragment;
 
@@ -14,6 +15,9 @@ import com.cpxiao.gamelib.fragment.BaseFragment;
  */
 
 public abstract class BaseActivity extends AppCompatActivity {
+    protected static final boolean DEBUG = AppConfig.DEBUG;
+    protected final String TAG = getClass().getSimpleName();
+
     //布局文件ID
     protected abstract int getContentViewId();
 
@@ -53,7 +57,6 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private void showQuitConfirmDialog() {
         Dialog dialog = new AlertDialog.Builder(this)
-                //                .setTitle(R.string.quit_msg)
                 .setMessage(R.string.quit_msg)
                 .setPositiveButton(R.string.ok, new DialogInterface.OnClickListener() {
                     @Override
@@ -69,8 +72,8 @@ public abstract class BaseActivity extends AppCompatActivity {
                     }
                 })
                 .create();
-        //            dialog.setCancelable(true);
-        //            dialog.setCanceledOnTouchOutside(true);
+        dialog.setCancelable(true);
+        dialog.setCanceledOnTouchOutside(true);
         dialog.show();
     }
 }

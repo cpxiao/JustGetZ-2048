@@ -1,4 +1,4 @@
-package com.cpxiao.aa2048;
+package com.cpxiao.justgetz2048;
 
 import android.content.DialogInterface;
 import android.support.v7.app.AlertDialog;
@@ -6,7 +6,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.cpxiao.R;
-import com.cpxiao.aa2048.views.GameView;
+import com.cpxiao.justgetz2048.views.GameView;
 
 public class InputListener implements View.OnTouchListener {
 

@@ -1,5 +1,9 @@
 include ':app'
 
-include ':AndroidUtils'
-project(':AndroidUtils').projectDir = new File('../../AndroidUtils/')
-include ':AndroidUtils:library'
+include ':__AndroidUtils'
+project(':__AndroidUtils').projectDir = new File('../../__AndroidUtils/')
+include ':__AndroidUtils:library'
+
+include ':__MiniGameLib'
+project(':__MiniGameLib').projectDir = new File('../../__MiniGameLib/')
+//include ':__MiniGameLib:app'

@@ -6,7 +6,7 @@ import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
 
-import com.cpxiao.zads.TestDevice;
+import com.cpxiao.AppConfig;
 import com.cpxiao.zads.ads.core.Advertisement;
 import com.cpxiao.zads.ads.core.BaseZAd;
 import com.cpxiao.zads.core.AdConfigBean;
@@ -29,7 +29,7 @@ import java.util.Queue;
  */
 public class FbBannerAd extends BaseZAd {
     private static final String TAG = "FbBannerAd";
-    private static final String TEST_DEVICE = TestDevice.TEST_DEVICE_FB;
+    private static final String TEST_DEVICE = AppConfig.TEST_DEVICE_FB;
 
     private AdView mAdManager;
 

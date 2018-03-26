@@ -1,24 +1,20 @@
 <resources>
-    <string name="app_name">AA 2048</string>
+    <string name="app_name">Just Get Z</string>
 
-    <!--<string name="ball1">Ball</string>-->
-    <string name="easy">Easy ( 4 x 4 )</string>
-    <string name="normal">Normal ( 5 x 5 )</string>
-    <string name="hard">Hard ( 6 x 6 )</string>
-    <string name="insane">Insane ( 7 x 7 )</string>
-    <string name="impossible">Impossible ( 8 x 8 )</string>
+    <string name="play">Play</string>
+    <string name="rate_app">Rate this app</string>
+    <string name="share">Share</string>
     <string name="best_score">Best Score</string>
     <string name="settings">Settings</string>
-    <string name="quit">Quit</string>
 
     <string name="ok">OK</string>
     <string name="cancel">Cancel</string>
     <string name="quit_msg">Quit the Game ?</string>
 
-    <string name="header">2048</string>
+    <string name="header">A - Z\nBest: Z</string>
 
     <string name="score">Score</string>
-    <string name="instructions">Swipe to move. Reach 2048.</string>
+    <string name="instructions">Swipe to move. Just get Z.</string>
     <string name="you_win">You Win!</string>
     <string name="game_over">Game Over!</string>
     <string name="go_on">Tap to Continue</string>
@@ -28,6 +24,7 @@
     <!-- Confirmation dialog-->
     <string name="reset">Reset</string>
     <string name="continue_game">Cancel</string>
-    <string name="reset_dialog_title">Reset game ?</string>
+    <string name="reset_dialog_title">Reset Game</string>
     <string name="reset_dialog_message">Are you sure you wish to reset the game ?</string>
+    <string name="share_msg">"Share an app for you."</string>
 </resources>

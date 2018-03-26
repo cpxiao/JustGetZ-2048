@@ -1,4 +1,4 @@
-package com.cpxiao.aa2048.fragment;
+package com.cpxiao.justgetz2048.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
@@ -6,9 +6,9 @@ import android.view.View;
 import android.widget.LinearLayout;
 
 import com.cpxiao.R;
-import com.cpxiao.aa2048.mode.Tile;
-import com.cpxiao.aa2048.mode.extra.Extra;
-import com.cpxiao.aa2048.views.GameView;
+import com.cpxiao.justgetz2048.mode.Tile;
+import com.cpxiao.justgetz2048.mode.extra.Extra;
+import com.cpxiao.justgetz2048.views.GameView;
 import com.cpxiao.androidutils.library.utils.PreferencesUtils;
 import com.cpxiao.gamelib.fragment.BaseZAdsFragment;
 

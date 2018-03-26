@@ -1,9 +1,9 @@
-package com.cpxiao.aa2048.mode;
+package com.cpxiao.justgetz2048.mode;
 
 import android.content.Context;
 
-import com.cpxiao.aa2048.mode.extra.Extra;
-import com.cpxiao.aa2048.views.GameView;
+import com.cpxiao.justgetz2048.mode.extra.Extra;
+import com.cpxiao.justgetz2048.views.GameView;
 import com.cpxiao.androidutils.library.utils.PreferencesUtils;
 
 import java.util.ArrayList;
@@ -35,8 +35,8 @@ public class MainGame {
     private static final int GAME_ENDLESS = 2;
     private static final int GAME_ENDLESS_WON = 3;
     private static int endingMaxValue;
-    public int numSquaresX ;
-    public int numSquaresY ;
+    public int numSquaresX;
+    public int numSquaresY;
     private final Context mContext;
     private final GameView mView;
     public Grid grid = null;

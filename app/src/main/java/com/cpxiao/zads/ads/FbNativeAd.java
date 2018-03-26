@@ -7,8 +7,8 @@ import android.view.View;
 import android.widget.ImageView;
 
 import com.bumptech.glide.Glide;
+import com.cpxiao.AppConfig;
 import com.cpxiao.R;
-import com.cpxiao.zads.TestDevice;
 import com.cpxiao.zads.ads.core.Advertisement;
 import com.cpxiao.zads.ads.core.BaseZAd;
 import com.cpxiao.zads.core.AdConfigBean;
@@ -28,7 +28,7 @@ import java.util.Queue;
  */
 public class FbNativeAd extends BaseZAd {
     private static final String TAG = "FbNativeAd";
-    private static final String TEST_DEVICE = TestDevice.TEST_DEVICE_FB;
+    private static final String TEST_DEVICE = AppConfig.TEST_DEVICE_FB;
 
     private NativeAdsManager mAdManager;
 

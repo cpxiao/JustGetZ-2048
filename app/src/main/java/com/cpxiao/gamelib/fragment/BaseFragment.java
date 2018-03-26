@@ -21,10 +21,10 @@ public abstract class BaseFragment extends Fragment {
 
     protected BaseActivity mActivity;
 
-    protected abstract void initView(View view, Bundle savedInstanceState);
-
     //获取布局文件ID
     protected abstract int getLayoutId();
+
+    protected abstract void initView(View view, Bundle savedInstanceState);
 
     //获取宿主Activity
     protected BaseActivity getHoldingActivity() {

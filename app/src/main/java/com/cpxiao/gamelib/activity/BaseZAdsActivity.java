@@ -27,11 +27,8 @@ import com.umeng.analytics.MobclickAgent;
  *          cpxiao on 2017/9/4     修改继承类, extends BaseAdsActivity
  */
 public abstract class BaseZAdsActivity extends BaseAdsActivity {
-    protected static final boolean DEBUG = AppConfig.DEBUG;
-    protected final String TAG = getClass().getSimpleName();
-
-    protected final String TEST_DEVICE_FB = "";
-    protected final String TEST_DEVICE_ADMOB = "E1E0F81BBFC3DDCC151FE415046C6E40";
+    protected final String TEST_DEVICE_FB = AppConfig.TEST_DEVICE_FB;
+    protected final String TEST_DEVICE_ADMOB = AppConfig.TEST_DEVICE_ADMOB;
 
     private InterstitialAd mAdMobInterstitialAd;
     private com.facebook.ads.InterstitialAd mFbInterstitialAd;
@@ -39,13 +36,6 @@ public abstract class BaseZAdsActivity extends BaseAdsActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //        //no title
-        //        requestWindowFeature(Window.FEATURE_NO_TITLE);
-        //
-        //        //隐藏状态栏部分（电池电量、时间等部分）
-        //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
-
     }
 
     @Override

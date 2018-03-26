@@ -1,8 +1,8 @@
-package com.cpxiao.aa2048.activity;
+package com.cpxiao.justgetz2048.activity;
 
 import android.os.Bundle;
 
-import com.cpxiao.aa2048.fragment.HomeFragment;
+import com.cpxiao.justgetz2048.fragment.HomeFragment;
 import com.cpxiao.gamelib.activity.BaseZAdsActivity;
 import com.cpxiao.gamelib.fragment.BaseFragment;
 import com.cpxiao.zads.ZAdManager;
